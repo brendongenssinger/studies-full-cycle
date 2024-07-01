@@ -42,4 +42,31 @@ Entrar no ubuntu
 > wsl -d "docker-desktop"
 
 
+> [!NOTE]
+> `docker-desktop` faz o compartilhamento dentro do `Ubuntu` ou outras distribuições **instaladas** na máquina 
+>
+> ![alt text](image.png)
+
+
+
+| COMANDOS   | DESCRIÇÃO |
+| ------    | ------ |
+| `docker ps` |  Quais são os containers rodando|
+| `docker run hello-world` |Rodar uma imagem de um container|
+| `docker ps -a` | Mostra todos os containers que estão rodando e os que rodaram|
+| `docker run -it ubuntu:latest bash` | Rodar uma imagem, cria o container, o comando -i é para attache com o comando bash |
+| `docker start <name-container-id>`   | Rodar um container |
+
+### Docker Network
+
+| COMANDOS          | DESCRIÇÃO                          |
+| ----------------- | ---------------------------------- |
+| `docker run -p`   | Rodar um container expondo portas `-p` **publish** vai redirecionar a porta mapeada para a porta do container |
+
+
+
+
+ 
+
+ 
 
