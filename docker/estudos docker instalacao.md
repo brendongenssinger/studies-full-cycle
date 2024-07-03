@@ -72,4 +72,8 @@ Entrar no ubuntu
 | ----------------- | ---------------------------------- |
 | `docker run -d --name nginx -p 8080:80 -v ~/Projects/fullcycle2/docker/html/: /usr/share/nginx/html nginx`   | Rodar o comando para criar o volume na raiz do sistema operacional <span style="color:red;">Comando Simples.</span> |
 | <span style="color:yellow;font-size:17px">-v</span> é um comando antigo `--mount type=bind,source="$(pwd)"/`   | É um comando bem antigo |
-| `echo $(pwd)`| É um comando que eu pegue o diretorio, sem ter a necessidade de ficar digitando o caminho<br> `/home/docker-desktop/Projects/fullcycle2/docker/html` |
+| `echo $(pwd)` <br>/home/docker-desktop| É um comando que eu pegue o diretorio, sem ter a necessidade de ficar digitando o caminho<br> `/home/docker-desktop/Projects/fullcycle2/docker/html` |
+| ` docker run -d --name nginx -p 8080:80 --mount type=bind,source="$(pwd)",target=/usr/share/nginx/html`   | comando para usar com o mount |
+| `docker run -d --name nginx -p 8080:80 --mount type=bind,source="$(pwd)"/`   | É um comando bem antigo |
+
+<a href="explicacao-sobre-volumes-docker.md"><p style="color:red">Diferença entre VOLUMES e BIND AMOUNT </p></a>
