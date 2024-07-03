@@ -47,7 +47,7 @@ Entrar no ubuntu
 >
 > ![alt text](image.png)
 
-
+## Comandos simples para ver os containers, iniciar um novo container
 
 | COMANDOS   | DESCRIÇÃO |
 | ------    | ------ |
@@ -57,16 +57,19 @@ Entrar no ubuntu
 | `docker run -it ubuntu:latest bash` | Rodar uma imagem, cria o container, o comando -i é para attache com o comando bash |
 | `docker start <name-container-id>`   | Rodar um container |
 
-### Docker Network
+## Comandos para rodar o container, porta e acessar o bash
 
 | COMANDOS          | DESCRIÇÃO                          |
 | ----------------- | ---------------------------------- |
 | `docker run -p`   | Rodar um container expondo portas `-p` **publish** vai redirecionar a porta mapeada para a porta do container |
-
-
-
-
+| `docker rm nginx -f`   | Vou remover um container que está rodando ` -f` é para **forçar** |
+| `docker rm nginx -f`   | Vou remover um container que está rodando ` -f` é para **forçar** |
+| `docker exec nginx ls`   |  Executa um comando ls dentro do container
+| `docker exec -it nginx bash`   |  Modo interativo com o bash no docker |
  
-
- 
-
+## Bind Mounts : Se o container morre, os arquivos estão ainda dentro do seu computador 
+| COMANDOS          | DESCRIÇÃO                          |
+| ----------------- | ---------------------------------- |
+| `docker run -d --name nginx -p 8080:80 -v ~/Projects/fullcycle2/docker/html/: /usr/share/nginx/html nginx`   | Rodar o comando para criar o volume na raiz do sistema operacional <span style="color:red;">Comando Simples.</span> |
+| <span style="color:yellow;font-size:17px">-v</span> é um comando antigo `--mount type=bind,source="$(pwd)"/`   | É um comando bem antigo |
+| `echo $(pwd)`| É um comando que eu pegue o diretorio, sem ter a necessidade de ficar digitando o caminho<br> `/home/docker-desktop/Projects/fullcycle2/docker/html` |
