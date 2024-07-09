@@ -49,31 +49,66 @@ Entrar no ubuntu
 
 ## Comandos simples para ver os containers, iniciar um novo container
 
-| COMANDOS   | DESCRIÇÃO |
-| ------    | ------ |
-| `docker ps` |  Quais são os containers rodando|
-| `docker run hello-world` |Rodar uma imagem de um container|
-| `docker ps -a` | Mostra todos os containers que estão rodando e os que rodaram|
+| COMANDOS                            | DESCRIÇÃO                                                                          |
+| ----------------------------------- | ---------------------------------------------------------------------------------- |
+| `docker ps`                         | Quais são os containers rodando                                                    |
+| `docker run hello-world`            | Rodar uma imagem de um container                                                   |
+| `docker ps -a`                      | Mostra todos os containers que estão rodando e os que rodaram                      |
 | `docker run -it ubuntu:latest bash` | Rodar uma imagem, cria o container, o comando -i é para attache com o comando bash |
-| `docker start <name-container-id>`   | Rodar um container |
+| `docker start <name-container-id>`  | Rodar um container                                                                 |
 
 ## Comandos para rodar o container, porta e acessar o bash
 
-| COMANDOS          | DESCRIÇÃO                          |
-| ----------------- | ---------------------------------- |
-| `docker run -p`   | Rodar um container expondo portas `-p` **publish** vai redirecionar a porta mapeada para a porta do container |
-| `docker rm nginx -f`   | Vou remover um container que está rodando ` -f` é para **forçar** |
-| `docker rm nginx -f`   | Vou remover um container que está rodando ` -f` é para **forçar** |
-| `docker exec nginx ls`   |  Executa um comando ls dentro do container
-| `docker exec -it nginx bash`   |  Modo interativo com o bash no docker |
+| COMANDOS                     | DESCRIÇÃO                                                                                                     |
+| ---------------------------- | ------------------------------------------------------------------------------------------------------------- |
+| `docker run -p`              | Rodar um container expondo portas `-p` **publish** vai redirecionar a porta mapeada para a porta do container |
+| `docker rm nginx -f`         | Vou remover um container que está rodando ` -f` é para **forçar**                                             |
+| `docker rm nginx -f`         | Vou remover um container que está rodando ` -f` é para **forçar**                                             |
+| `docker exec nginx ls`       | Executa um comando ls dentro do container                                                                     |
+| `docker exec -it nginx bash` | Modo interativo com o bash no docker                                                                          |
  
 ## Bind Mounts : Se o container morre, os arquivos estão ainda dentro do seu computador 
-| COMANDOS          | DESCRIÇÃO                          |
-| ----------------- | ---------------------------------- |
-| `docker run -d --name nginx -p 8080:80 -v ~/Projects/fullcycle2/docker/html/: /usr/share/nginx/html nginx`   | Rodar o comando para criar o volume na raiz do sistema operacional <span style="color:red;">Comando Simples.</span> |
-| <span style="color:yellow;font-size:17px">-v</span> é um comando antigo `--mount type=bind,source="$(pwd)"/`   | É um comando bem antigo |
-| `echo $(pwd)` <br>/home/docker-desktop| É um comando que eu pegue o diretorio, sem ter a necessidade de ficar digitando o caminho<br> `/home/docker-desktop/Projects/fullcycle2/docker/html` |
-| ` docker run -d --name nginx -p 8080:80 --mount type=bind,source="$(pwd)",target=/usr/share/nginx/html`   | comando para usar com o mount |
-| `docker run -d --name nginx -p 8080:80 --mount type=bind,source="$(pwd)"/`   | É um comando bem antigo |
+| COMANDOS                                                                                                     | DESCRIÇÃO                                                                                                                                            |
+| ------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `docker run -d --name nginx -p 8080:80 -v ~/Projects/fullcycle2/docker/html/: /usr/share/nginx/html nginx`   | Rodar o comando para criar o volume na raiz do sistema operacional <span style="color:red;">Comando Simples.</span>                                  |
+| <span style="color:yellow;font-size:17px">-v</span> é um comando antigo `--mount type=bind,source="$(pwd)"/` | É um comando bem antigo                                                                                                                              |
+| `echo $(pwd)` <br>/home/docker-desktop                                                                       | É um comando que eu pegue o diretorio, sem ter a necessidade de ficar digitando o caminho<br> `/home/docker-desktop/Projects/fullcycle2/docker/html` |
+| ` docker run -d --name nginx -p 8080:80 --mount type=bind,source="$(pwd)",target=/usr/share/nginx/html`      | comando para usar com o mount                                                                                                                        |
+| `docker run -d --name nginx -p 8080:80 --mount type=bind,source="$(pwd)"/`                                   | É um comando para criar o mount                                                                                                                      |
 
-<a href="explicacao-sobre-volumes-docker.md"><p style="color:red">Diferença entre VOLUMES e BIND AMOUNT </p></a>
+<a style="text-align:center" href="https://github.com/brendongenssinger/studies-full-cycle/blob/master/docker/explicacao-sobre-volumes-docker.md"><h3 style="color:red;text-align:center">Link => Diferença entre VOLUMES e BIND AMOUNT </h3></a>
+<br><br>
+<h2 style="color:green;text-align:center">Criação de Volumes </h2>
+
+
+| COMANDOS                                                                             | DESCRIÇÃO                                                        |
+| ------------------------------------------------------------------------------------ | ---------------------------------------------------------------- |
+| `docker volume create meuvolume`                                                     | É um comando para criar o volume                                 |
+| ` docker volume ls`                                                                  | Listo os volumes                                                 |
+| `docker volume inspect meuvolume`                                                    | Inspeciono um volume especifico                                  |
+| `docker run --name nginx -d --mount type=volume,source=meuvolume,target=/app nginx`  | Rodar um novo container para compartilhar o mesmo volume         |
+| `docker run --name nginx2 -d --mount type=volume,source=meuvolume,target=/app nginx` | Rodar um novo container para compartilhar o mesmo volume         |
+| `docker exec -it nginx2 bash`                                                        | Entro no bash e tenho a possibilidade de abrir o mesmo diretorio |
+| `docker run --name nginx3 -d -v meuvolume:/app nginx`                                | Comando para compartilhar o meuvolume dentro do container        |
+| `docker volume prune`                                                                | Vai matar tudo que está dentro do volume                         |
+
+ ## Sobre as imagens
+ ### Como criar uma imagem com DockerFile
+ É uma receita de bolo !
+
+` FROM: Define a imagem base a ser utilizada.`
+
+`RUN: Executa comandos durante a construção da imagem.`
+
+`COPY: Copia arquivos e diretórios para dentro da imagem.`
+
+`WORKDIR: Define o diretório de trabalho para os comandos seguintes.`
+
+`CMD ou ENTRYPOINT: Define o comando a ser executado quando o contêiner for iniciado.`
+
+  
+  ``
+ 
+
+
+ 
