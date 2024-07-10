@@ -106,8 +106,28 @@ Entrar no ubuntu
 
 `CMD ou ENTRYPOINT: Define o comando a ser executado quando o contêiner for iniciado.`
 
+`docker ps -a -q ` : Lista apenas os ids dos container
   
-  ``
+`docker rm $(docker ps -a -q) -f` Encerra todos os containers 
+
+## Diferença entre CMD x EntryPoint
+
+CMD:
+
+Define o comando padrão que será executado no contêiner.
+Pode ser substituído por argumentos passados ao docker run.
+Exemplo:
+Dockerfile
+Copy code
+> `FROM ubuntu`
+> 
+> `CMD ["echo", "Hello, World!"]`
+
+###Comandos:
+> `docker run myimage`: Executa "echo Hello, World!".
+> 
+> `docker run myimage Hi there!`: 
+Substitui CMD, executa "echo Hi there!".
  
 
 
