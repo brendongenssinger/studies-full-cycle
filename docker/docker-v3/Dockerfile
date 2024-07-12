@@ -1,8 +1,6 @@
-FROM ubuntu:latest
+FROM nginx:latest
 
-#Comando Fixo
-ENTRYPOINT [ "echo","Hello " ]
+COPY html /usr/share/nginx/html
 
-#Comando Variavel
-CMD [ "World" ]
-
+ENTRYPOINT [ "/docker-entrypoint.sh" ]
+CMD [ "nginx","-g","daemon off;" ]
