@@ -129,6 +129,15 @@ Copy code
 > `docker run myimage Hi there!`: 
 Substitui CMD, executa "echo Hi there!".
  
+### Publicar a imagem no DOCKER HUB
 
+> `docker push` brendonmascarenhas/nginx-fullcycle
 
+###Tipos de Network DOCKER
+Rede internas dentro 
+
+1 - Um container comunicar com outro
+
+###Tipos de network :
+- 
  
