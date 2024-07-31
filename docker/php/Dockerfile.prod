@@ -18,5 +18,8 @@ RUN rm -rf /var/www/html
 COPY --from=builder /var/www/laravel .
 RUN ln -s public html
 RUN chown -R www-data:www-data /var/www
+# Funciona apenas no linux
+# Link simbolico, quando acessa a pasta html está vendo a pasta public
+RUN lns -s public html
 EXPOSE 9000
 CMD [ "php-fpm" ]
