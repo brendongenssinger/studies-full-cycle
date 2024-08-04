@@ -152,3 +152,9 @@ ___
 
 ### Docker logs 
 `docker logs <name-docker>`
+
+
+____
+
+###Docker with nginx as proxy reverso
+

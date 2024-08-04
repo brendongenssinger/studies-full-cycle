@@ -6,5 +6,5 @@ RUN rm /etc/nginx/conf.d/default.conf
 COPY nginx.conf /etc/nginx/conf.d
 
 ## - p é para criar os diretorios e subdiretorios
-RUN mkdir /var/www/html -p && touch /var/www/index.php
+RUN mkdir /var/www/html -p && touch /var/www/html/index.php
 
