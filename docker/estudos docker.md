@@ -153,8 +153,13 @@ ___
 ### Docker logs 
 `docker logs <name-docker>`
 
+`docker logs <name-docker> --follow`
+
+`docker logs <name-docker> --details`
 
 ____
 
-###Docker with nginx as proxy reverso
+### Remove todos os container 
+`docker rm $(docker ps -a -q ) -f`
+
 
