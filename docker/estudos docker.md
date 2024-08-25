@@ -147,7 +147,7 @@ Rede internas dentro
 | Host (Network) | Principal motivo de não utilizar, no MACOS este serviço não funciona. O docker foi feito para rodar no linux, juntando a rede do container docker e não com a do MACOS, agora quando está utilizando um Windows, mas com WSL Linux, o cenário muda. ` docker run --rm -d --name nginx-host --network host nginx`
 | Do seu container precisa acessar alguma porta ou recurso do docker-host, como que faz ? | |
 
-
+> docker network create -d bridge network-node
 ___
 
 ### Docker logs 

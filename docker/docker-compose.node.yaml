@@ -1,0 +1,34 @@
+version: '3'
+
+services:
+
+  app:
+    build: 
+      context: node
+    container_name: app
+    networks:
+      - node-network
+    volumes:
+      - ./node:usr/src/app
+    tty: true
+
+  db:
+    image: mysql:5.7
+    command:  --innodb-use-native-aio=0
+    container_name: db 
+    restart: always # Caso o container pare, ele reinicia automaticamente
+    tty: true # Se precisar de interação com o terminal
+    volumes:
+      - ./mysql:/var/lib/mysql # Mapeamento do volume para a minha pasta local
+    ports:
+      - "3306:3306"
+    environment: # Variáveis de ambiente
+      MYSQL_DATABASE: nodedb
+      MYSQL_ROOT_PASSWORD: DevBrendon!      
+      SERVICE_TAGS: dev
+      SERVICE_NAME: mysql
+    networks:
+      - laranet
+networks:
+  laranet:
+    driver: bridge
