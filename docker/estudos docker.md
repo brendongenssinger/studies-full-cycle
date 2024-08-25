@@ -161,5 +161,17 @@ ____
 
 ### Remove todos os container 
 `docker rm $(docker ps -a -q ) -f`
+___
 
+
+### Docker-Compose : 
+
+### Remova containers órfãos `Docker-Compose`
+`docker-compose -f docker-compose.node.yaml down --remove-orphans`
+
+### Forçar reconstrução da imagem `Docker-Compose` 
+`docker-compose -f docker-compose.node.yaml build --no-cache`
+
+### Subir os container `Docker-Compose`
+`docker-compose -f docker-compose.node.yaml up -d`
 

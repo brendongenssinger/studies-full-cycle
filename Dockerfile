@@ -1,5 +1,8 @@
+#Docker File mysql 5.7 debian
+#Author: Brendon
+#Date: 2024-08-25
+#Version: 1.0
 FROM mysql:5.7-debian
-
 
 
 #RUN apt-get update && apt-get install -y vim || apt-get update -o Acquire::ForceIPv4=true && apt-get install -y vim
