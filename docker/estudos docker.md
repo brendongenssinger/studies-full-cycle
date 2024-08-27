@@ -175,3 +175,13 @@ ___
 ### Subir os container `Docker-Compose`
 `docker-compose -f docker-compose.node.yaml up -d`
 
+
+
+## > Depends_on 
+Não acontece mais na versão 3.0, com a tag `depends_on: - db` não signfica que o docker vai esperar subir o DB para depois subir o NODE.
+
+
+> Uso do `DOCKERIZE`
+>
+> 
+

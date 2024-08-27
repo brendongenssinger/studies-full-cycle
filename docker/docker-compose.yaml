@@ -29,6 +29,8 @@ services:
       - MYSQL_ROOT_PASSWORD=root
     networks: 
       - node-network
+    ports:
+      - "3307:3307"
 
 # volumes:
 #   mysql_data:

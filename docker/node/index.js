@@ -6,7 +6,8 @@ const config = {
     host: 'db',
     user: 'root',
     password: 'root',
-    database:'nodedb'
+    database:'nodedb',
+    port: 3306
 };
 
 const mysql = require('mysql')
@@ -15,7 +16,7 @@ const connection = mysql.createConnection(config)
 const sql = `INSERT INTO people(name) values('Wesley')`
 connection.query(sql)
 connection.end()
-
+console.log("Inserido com sucesso");
 
 
 app.get('/healthcheck',(req,res)=>{
