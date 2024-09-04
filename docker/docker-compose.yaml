@@ -3,6 +3,7 @@ version: '3'
 services:
   app:
     container_name: app
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
     build: 
       context: node
 #      dockerfile: Dockerfile.prod
@@ -17,13 +18,13 @@ services:
       - db
 
   db:
-    image: mysql:5.7
+    image: mysql:5.7.16
     command: --innodb-use-native-aio=0
     container_name: db
     restart: always
     tty: true
-    #volumes: 
-      #- ./mysql_data:/var/lib/mysql
+    volumes: 
+      - ./mysql_data:/var/lib/mysql
     environment: 
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
