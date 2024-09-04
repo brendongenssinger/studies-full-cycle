@@ -1,3 +1,5 @@
+#docker push brendonmascarenhas/fullcycle:latest
+
 FROM golang:alpine  as build
 
 WORKDIR /usr/local/bin/app
