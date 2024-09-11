@@ -1,6 +1,8 @@
+# CONHECENDO DOCKER 
+
 #docker push brendonmascarenhas/fullcycle:latest
 
-FROM golang:alpine  as build
+FROM golang:1.20-alpine3.18 AS build
 
 WORKDIR /usr/local/bin/app
 
