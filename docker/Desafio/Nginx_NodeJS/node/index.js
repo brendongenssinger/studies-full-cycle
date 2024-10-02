@@ -11,17 +11,37 @@ const config = {
 };
 
 const mysql = require('mysql')
+console.log('Tentando conectar');
 const connection = mysql.createConnection(config)
+const sqlCreateTable = `CREATE TABLE IF NOT EXISTS people(id int not null auto_increment, name varchar(255), primary key(id))`
 
+connection.query(sqlCreateTable);
+console.log('Tabela criada');
+connection.end()
 
-app.get('/healthcheck',(req,res)=>{
-    res.send('<h1>Full Cycle Deu certo a parada aqui <h1>')
-});
+app.get('/',(req,res)=>{
+    const connection = mysql.createConnection(config)
+    const sqlGet = `SELECT id,name FROM people`;
+    let count = 0;
+    let data;
+    console.log('Entrou');
+    connection.query(sqlGet,(err,rows,fields)=>{
+        if(err) throw err;
+        if(!rows){
+            data = 'Nenhum registro encontrado';
+        }
+        let names = '';
+        rows.forEach(row => {
+            names += row.id + ' - ' + row.name + '<br>';
+        });
+        data+="\n" +names;
+    });
+    console.log(data);
+    const sql = `INSERT INTO people(name) values('${req.params.name==undefined?'Teste 1':req.params.name}')`
+    connection.query(sql);
+    connection.end()
 
-app.post('/create',(req,res)=>{
-    const sql = `INSERT INTO people(name) values('${req.body.name}')`
-    connection.query(sql)  
-    console.log("Inserido com sucesso");
+    res.send('<h1>Full Cycle Rocks!<h1>\n'+data);
 });
 
 
