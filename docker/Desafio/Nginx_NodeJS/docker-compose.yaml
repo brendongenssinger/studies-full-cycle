@@ -1,0 +1,43 @@
+#docker-compose up --build
+
+version: '3'
+
+services:
+  nodejs:
+    build: 
+      context: ./node
+      dockerfile: Dockerfile
+    image: brendonmascarenhas/nodejs:nginxaasproxy
+    container_name: nodejs
+    networks:
+      - nodenet
+
+  db:
+    image: mysql:5.7.16
+    command: --innodb-use-native-aio=0
+    container_name: db
+    restart: always
+    tty: true
+    volumes: 
+      - ./mysql_data:/var/lib/mysql
+    environment: 
+      - MYSQL_DATABASE=nodedb
+      - MYSQL_ROOT_PASSWORD=root
+    networks: 
+      - nodenet
+    ports:
+      - "3306:3306"
+
+  nginx:
+    build: 
+      context: ./nginx
+      dockerfile: Dockerfile
+    image: brendonmascarenhas/nginx:nginxaasproxy
+    container_name: nginx
+    networks:
+      - nodenet
+    ports:
+      - "8080:80"
+networks:
+  nodenet:
+    driver: bridge
