@@ -26,7 +26,7 @@ app.get('/',(req,res)=>{
     rodarScript(); 
     const connection = mysql.createConnection(config)
     const sqlGet = `SELECT id,name FROM people`;    
-    let html = '<h1>Full Cyclee Rocks!</h1></br>';    
+    let html = '<h1>Full Cycle Rocks!</h1></br>';    
     
     connection.query(sqlGet, (error, results, fields) => {
         if (error) {
