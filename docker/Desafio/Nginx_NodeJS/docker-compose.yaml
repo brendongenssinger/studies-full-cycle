@@ -2,15 +2,7 @@
 
 version: '3'
 
-services:
-  nodejs:
-    build: 
-      context: ./node
-      dockerfile: Dockerfile
-    image: brendonmascarenhas/nodejs:nginxaasproxy
-    container_name: nodejs
-    networks:
-      - nodenet
+services:  
 
   db:
     image: mysql:5.7.16
@@ -38,6 +30,14 @@ services:
       - nodenet
     ports:
       - "8080:80"
+  nodejs:
+    build: 
+      context: ./node
+      dockerfile: Dockerfile
+    image: brendonmascarenhas/nodejs:nginxaasproxy
+    container_name: nodejs
+    networks:
+      - nodenet
 networks:
   nodenet:
     driver: bridge
