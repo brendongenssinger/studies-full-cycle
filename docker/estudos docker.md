@@ -177,11 +177,71 @@ ___
 
 
 
-## > Depends_on 
-Não acontece mais na versão 3.0, com a tag `depends_on: - db` não signfica que o docker vai esperar subir o DB para depois subir o NODE.
+# Docker Compose `depends_on` Documentation
+
+## Overview
+The `depends_on` option in Docker Compose is used to define dependencies between services. It specifies the order in which the services should be started. This is particularly useful when one service relies on another to be fully operational before it can start.
+
+## Usage
+In a `docker-compose.yml` file, you can use the `depends_on` option within a service definition to indicate that the service depends on one or more other services. This ensures that Docker Compose starts the dependent services in the specified order.
+
+## Example
 
 
-> Uso do `DOCKERIZE`
->
-> 
+### Uso do `DOCKERIZE`
+
+`Dockerize` é uma ferramenta útil para garantir que as dependências de um serviço estejam disponíveis antes de iniciar o serviço em si. Isso é especialmente útil em ambientes de contêineres onde a ordem de inicialização pode ser importante.
+
+#### Exemplo de uso do `Dockerize` no caminho `docker/Desafio/Nginx_NodeJS`
+
+1. **Instalar o Dockerize**:
+    Adicione o Dockerize ao seu Dockerfile para garantir que ele esteja disponível no contêiner.
+
+    ```Dockerfile
+    FROM nginx:alpine
+
+    # Instalar o Dockerize
+    RUN apk add --no-cache wget \
+         && wget -qO- https://github.com/jwilder/dockerize/releases/download/v0.6.1/dockerize-linux-amd64-v0.6.1.tar.gz | tar -C /usr/local/bin -xz
+
+    # Copiar arquivos de configuração
+    COPY . /app
+
+    WORKDIR /app
+
+    CMD ["dockerize", "-wait", "tcp://db:5432", "-timeout", "20s", "nginx", "-g", "daemon off;"]
+    ```
+
+2. **Configurar o `docker-compose.yml`**:
+    Utilize o `docker-compose` para definir os serviços e suas dependências.
+
+    ```yaml
+    version: '3.8'
+
+    services:
+      nginx:
+         build: .
+         ports:
+            - "80:80"
+         depends_on:
+            - app
+            - db
+
+      app:
+         image: node:14
+         working_dir: /app
+         volumes:
+            - .:/app
+         command: ["npm", "start"]
+        entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
+
+      db:
+         image: postgres:13
+         environment:
+            POSTGRES_USER: user
+            POSTGRES_PASSWORD: password
+            POSTGRES_DB: mydb
+    ```
+
+Neste exemplo, o `Dockerize` é usado para garantir que o serviço `nginx` só inicie após o serviço `db` estar disponível na porta 5432. Isso ajuda a evitar erros de conexão e garante que todas as dependências estejam prontas antes de iniciar o serviço principal.
 

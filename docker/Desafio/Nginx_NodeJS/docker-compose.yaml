@@ -11,7 +11,7 @@ services:
     restart: always
     tty: true
     volumes: 
-      - ./mysql_data:/var/lib/mysql
+      - ./mysqldata:/src/lib/mysql
     environment: 
       - MYSQL_DATABASE=nodedb
       - MYSQL_ROOT_PASSWORD=root
@@ -30,6 +30,7 @@ services:
       - nodenet
     ports:
       - "8080:80"
+      
   nodejs:
     build: 
       context: ./node
@@ -38,6 +39,10 @@ services:
     container_name: nodejs
     networks:
       - nodenet
+    entrypoint: dockerize -wait tcp://db:3306 -timeout 20s docker-entrypoint.sh
+    volumes:
+    - ./node:/usr/src/app
+
 networks:
   nodenet:
     driver: bridge
