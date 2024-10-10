@@ -20,13 +20,18 @@
   - Transformar requisito de negócio em soluções de software
   - Desenhos arquiteturais da solução de um software, para reproduzir como ele irá funcionar
   - Pode participar do processo comercial de pré-venda e venda
+- Arquitetura de Software :
+  - É uma disciplina da engenharia de software
+  - Diretamente ligada ao processo de desenvolvimento de software
+  - Afeta diretamente na estrutura organizacional da empresa
   - 
 
-### Anotações
-- 
-- 
+
+### O que um arquiteto ou uma arquiteta fazem :
 - [Anotação 2]
 - [Anotação 3]
+- 
+- 
 
 ## Módulo 2: [Nome do Módulo]
 ### Tópicos Abordados

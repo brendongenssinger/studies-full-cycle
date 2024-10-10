@@ -43,6 +43,7 @@ services:
     tty: true
     volumes:
     - ./node:/usr/src/app
+    - /usr/src/app/node_modules 
     command: node index.js
 
 networks:
