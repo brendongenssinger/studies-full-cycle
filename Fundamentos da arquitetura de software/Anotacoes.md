@@ -9,22 +9,26 @@
 
 ## Módulo 1: [Fundamentos]
 ### Tópicos Abordados
-- Arquitetura Tecnológica
+- #### Arquitetura Tecnológica
   - Especialidade em tecnologias específicas de mercado
   - Diversidade de processionais especialistas 
-- Arquitetura Corporativa
+- #### Arquitetura Corporativa
   - Avaliaçaõ de custos de toda a area de desenvolvimento
   - Padronização de Tecnologias
   - Planejamento de grandes implantações
-- Arquitetura de Soluções:
+- #### Arquitetura de Soluções:
   - Transformar requisito de negócio em soluções de software
   - Desenhos arquiteturais da solução de um software, para reproduzir como ele irá funcionar
   - Pode participar do processo comercial de pré-venda e venda
-- Arquitetura de Software :
+- #### Arquitetura de Software :
   - É uma disciplina da engenharia de software
   - Diretamente ligada ao processo de desenvolvimento de software
   - Afeta diretamente na estrutura organizacional da empresa
-  - 
+### Por que aprender arquitetura de software
+  - Poder navegar da visão macro para a visão micro de um ou mais softwares
+  - Entender quais são as diversas opções que temos para desenvolver a mesma coisa !
+  - Pensar a longo prazo no projeto e sua sustentabilidade
+  - Mergulhado em padrões de projeto e de desenvolvimento e suas boas práticas !
 
 
 ### O que um arquiteto ou uma arquiteta fazem :

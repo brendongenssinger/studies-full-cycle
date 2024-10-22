@@ -44,7 +44,7 @@ services:
     volumes:
     - ./node:/usr/src/app
     - /usr/src/app/node_modules 
-    command: node index.js
+   # command: node index.js
 
 networks:
   nodenet:
