@@ -19,4 +19,10 @@ RUN npm install
 
 EXPOSE 3000
 
-CMD ["node", "index.js"]
+# Copia o script de entrada e garante permissões de execução
+COPY docker-entrypoint.sh /usr/src/app/
+RUN chmod +x /usr/src/app/docker-entrypoint.sh
+
+#ENTRYPOINT ["/usr/src/app/docker-entrypoint.sh"]
+
+#CMD ["node", "index.js"]

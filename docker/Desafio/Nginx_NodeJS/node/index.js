@@ -40,7 +40,7 @@ app.get('/',(req,res)=>{
         res.send(html);
     });
     
-    const sql = `INSERT INTO people(name) values('Teste 1')`;
+    const sql = `INSERT INTO people(name) values('Teste - Curso Full Cycle')`;
     connection.query(sql);
     connection.commit();
     connection.end();
