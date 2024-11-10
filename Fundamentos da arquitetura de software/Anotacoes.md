@@ -13,7 +13,7 @@
   - Especialidade em tecnologias específicas de mercado
   - Diversidade de processionais especialistas 
 - #### Arquitetura Corporativa
-  - Avaliaçaõ de custos de toda a area de desenvolvimento
+  - Avaliação de custos de toda a area de desenvolvimento
   - Padronização de Tecnologias
   - Planejamento de grandes implantações
 - #### Arquitetura de Soluções:
@@ -80,8 +80,8 @@
 - ### Performance
   - É o desempenho que um software possui para completar um determinado workload
   - As unidades de medida para avaliarmos a performance de um software são :
-    - > Latência ou response time
-    - >Throughput
+    - `Latência ou response time`
+    - `Throughput`
   - Ter um software `performático` é diferente de ter um `software escalável`
 - Métricas para medir a performance
   - Diminuindo a latência
@@ -121,4 +121,25 @@
   - Dê preferencias do uso do rate limite
 - ### Circuit Break
   - Protege o sistema fazendo com que as requisições feitas para ele, sejam negadas. Ex : `error 500`
+- ### Api Gateway 
+  - Centraliza o recebimento das chamadas !
+  - Implementa politicas de Rate Limiting, Health check, etc
+  - Api Gateway pode fazer muitas coisas, adicionar ou remover coisas do header, logs
+  - Api gateway é como se você mora-se em um condominio e a portaria seria o Api Gateway
+- ### Service Mesh
+  - controla o tráfego de rede
+  - Evita implementações de proteção pelo próprio sistema.
+- ### Comunicação Assíncrona
+  - Recebo 100 requisições por minuto, mas o meu sistema suporta apenas 50 requisições. E o usuário apenas quer enviar a requisição, ele não vai ficar aguardando
+  - Evita perda de dados : `KAFKA`, `RABBITMQ`
+  - Não há perda de dados no envio de uma transação de o server estiver fora
+- ### Garantias de entrega : RETRY
+  - Exponential BackOff:
+    - Adicionar uma politica, um algoritimo de ruído.
+- ### Garantias de Entrega : KAFKA
+  - Com a comunicação assincrona, um messager broker ele aguarda.
+  - Se não souber o que é um KAFKA
+    - O Broker é quem vai receber a mensagem do Producer
+    - No cenário que o broker A é encerrado, eu perdo a mensagem.
+    - No cenário eu preciso enviar para todos os broker !
   - 
