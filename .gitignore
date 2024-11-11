@@ -6,3 +6,4 @@ ib_*
 *.pem
 docker/mysql/ibdata1
 docker/Desafio/Nginx_NodeJS/mysql_data/
+.pnotes/
