@@ -87,7 +87,7 @@ Method OPTIONS : Ele nos permite quais métodos, são permitidos quais recursos.
 
 ---
 
-## GraphQL
+
 
 ### Introdução
 Descreva aqui uma introdução ao REST, seus princípios e como ele é utilizado na comunicação entre sistemas.
@@ -159,6 +159,14 @@ docker-desktop@Desktop-Brendon:~/api-tools-skeleton$ `code Dockerfile`
     "total_items": 1,
     "page": 1
 }
+   ```GO
+   go mod tidy   
    ```
+
+### Rodar comando para configuração e gerar modelos.
+   ```GO
+   go run github.com/99designs/gqlgen init
+   ```
+
 
    
