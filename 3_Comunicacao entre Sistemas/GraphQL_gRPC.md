@@ -57,3 +57,7 @@ gRPC - API "Bi directional streaming"
 # Diferença entre Rest e gRPC :
 No rest o contrato é pré definido, no gRPC não !
 Rest tem uma latência maior, devido aguardar o processamento do servidor e a resposta, no gRPC ele é assincrono. 
+
+___
+
+Rodar o comando 
