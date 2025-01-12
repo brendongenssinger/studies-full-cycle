@@ -8,7 +8,9 @@ GraphQL é uma linguagem de consulta para APIs e um runtime para executar essas 
 
 GraphQL foi desenvolvido internamente pelo Facebook em 2012 antes de ser lançado publicamente em 2015. Ele é uma alternativa ao REST e adere a uma abordagem diferente para a comunicação entre cliente e servidor.
 ___
-## gRPC
+<br>
+
+# gRPC : [Link do site](https://grpc.io/) | Protocolo Buffers (https://protobuf.dev/)
 ### O que é :
 - gRPC é um framework desenvolvido pela google que tem o objetivo facilitar o processo de comunicação entre sistemas de uma forma extremamente rápida, leve, independente de linguagem ( Google )
 - Faz parte da CNCF 
@@ -17,7 +19,7 @@ ___
 
 [link gRPC Dotnet](https://learn.microsoft.com/pt-br/aspnet/core/grpc/basics?view=aspnetcore-9.0)
 
-## RPC - Remote Procedure Call
+### RPC - Remote Procedure Call
 Client : server.soma(a,b) => Server func soma(int a, int b)
 
 ### Protocol Buffers
@@ -45,3 +47,13 @@ sempre colocar o tipo e o posicionamento:
 - Server PUSH
 - Headers são comprmimidos
 - Processo é mais veloz
+
+### Formatos de Comunicaçao : 
+gRPC - API "unary"
+gRPC - API "Server streaming"
+gRPC - API "Client streaming"
+gRPC - API "Bi directional streaming"
+
+# Diferença entre Rest e gRPC :
+No rest o contrato é pré definido, no gRPC não !
+Rest tem uma latência maior, devido aguardar o processamento do servidor e a resposta, no gRPC ele é assincrono. 
