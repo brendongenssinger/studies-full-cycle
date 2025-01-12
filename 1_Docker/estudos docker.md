@@ -143,7 +143,7 @@ Rede internas dentro
 |Tipos de redes | Explicação|
 |----- |----- |
 |----- |----- |
-|Bridge (PONTE) | É uma rede privada interna criada pelo Docker no host. Cada contêiner conectado a essa rede pod/var/tmp/assdig.arql1_53.sql assdig.arql1_54.sqle se comunicar com outros contêineres na mesma rede, mas é isolado do tráfego de rede externa por padrão. São isolados dos outros contêineres em outras redes ou no host . É uma boa prática de segurança, evitando interferências entre contêiners. Permite a comunicação entre contêineres usando seus nomes em vez de endereços IP.|
+|Bridge (PONTE) | É uma rede privada interna criada pelo Docker no host. Cada contêiner conectado a essa rede e se comunicar com outros contêineres na mesma rede, mas é isolado do tráfego de rede externa por padrão. São isolados dos outros contêineres em outras redes ou no host . É uma boa prática de segurança, evitando interferências entre contêiners. Permite a comunicação entre contêineres usando seus nomes em vez de endereços IP.|
 | Host (Network) | Principal motivo de não utilizar, no MACOS este serviço não funciona. O docker foi feito para rodar no linux, juntando a rede do container docker e não com a do MACOS, agora quando está utilizando um Windows, mas com WSL Linux, o cenário muda. ` docker run --rm -d --name nginx-host --network host nginx`
 | Do seu container precisa acessar alguma porta ou recurso do docker-host, como que faz ? | |
 
