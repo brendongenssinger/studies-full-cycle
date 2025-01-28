@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  consul01:
+    image: consul:1.6.1
+    container_name: consul01
+    hostname: consul01    
+    command: ['tail', '-f', '/dev/null']
+  consul02:
+    image: consul:1.6.1
+    container_name: consul02
+    hostname: consul02    
+    command: ['tail', '-f', '/dev/null']
+  consul03:
+    image: consul:1.6.1
+    container_name: consul03
+    hostname: consul03    
+    command: ['tail', '-f', '/dev/null']
+
+
