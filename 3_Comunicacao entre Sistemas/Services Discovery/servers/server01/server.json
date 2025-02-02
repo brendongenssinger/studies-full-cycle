@@ -1,14 +1,23 @@
 {
     "server":true,
-    "bind_addr":"172.20.0.3",
+    "bind_addr":"172.21.0.4",
     "bootstrap_expect":3,
-    "data_dir":"/tmp",
+    "data_dir": "/var/consul",
     "node_name":"consulserver01",
     "encrypt":"4qi0x6r7rnCVG3dI9rRplCBuPiN1ETDfQkNQXbO7A/A=",
     "retry_join":["172.20.0.4"],
     "client_addr": "0.0.0.0",
+    "log_level": "INFO",
+
     "ui_config":{
         "enabled":true
+    },
+    "check":{
+        "id":"nginx",
+        "name":"HTTP 80",
+        "http":"http://localhost",
+        "interval":"10s",
+        "timeout":"1s"
     }
     
 }

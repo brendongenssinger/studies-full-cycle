@@ -40,14 +40,18 @@ Server : Mantém o estado do cluster, registra os serviços, Membership (quem é
 > apk -U add bind-tools 
 > dig @localhost -p 8600
 Ele retorna o ip 
-> consul agent -server -bootstra-expect=3 -node=consulserver01 -bind=172.21.0.4 -data-dir=var/lib/c onsul -config-dir=etc/consul.d
+> consul agent -server -bootstrap-expect=3 -node=consulserver01 -bind=172.21.0.4 -data-dir=var/lib/consul -config-dir=etc/consul.d
 >
 #### COnsul Cliente
 > mkdir /libconsul
-> consult agent -bind=<ip_server> -data-dir=/var/lib/consul -config=dir=/etc/consul
+> consul agent -bind=<ip_server> -data-dir=/var/lib/consul -config=dir=/etc/consul
 > 
 
 > consul catalog nodes -service nginx
 
 > ifconfig
 # 172.21.0.4
+
+## Utilizar a UI
+
+> consul agent -config-dir=/etc/consul.d
