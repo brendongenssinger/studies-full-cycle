@@ -1,0 +1,46 @@
+Let me explain the key components of this Go project that implements a Hexagonal Architecture pattern for product management:
+
+1. **Core Domain (product.go)**:
+- Defines the main `Product` struct with fields like ID, Name, Price, and Status
+- Implements business rules through methods like:
+  - `Enable()`: Product can only be enabled if price > 0
+  - `Disable()`: Product can only be disabled if price = 0
+  - `IsValid()`: Validates product attributes
+- Defines key interfaces:
+  - `ProductInterface`: Core product behavior
+  - `ProductServiceInterface`: Service layer operations
+  - `ProductReader`/`ProductWriter`: Persistence operations
+
+2. **Service Layer (product_service.go)**:
+- Implements business operations using `ProductService` struct
+- Provides methods for:
+  - Creating new products
+  - Enabling/disabling products
+  - Getting product by ID
+- Uses dependency injection for persistence
+
+3. **Tests**:
+- `product_test.go`: Unit tests for Product entity behavior
+- `product_service_test.go`: Tests service layer using mocks
+- Uses `gomock` for mocking dependencies
+
+4. **Mock Generation (application.go)**:
+- Auto-generated mock implementations of interfaces
+- Used for testing in isolation
+
+5. **Architecture Notes (Anotacoes.md)**:
+- Documents key architectural principles
+- Emphasizes:
+  - Sustainable growth
+  - Well-defined boundaries
+  - Component isolation
+  - Scalability
+  - Preparation for changes
+
+The project follows Hexagonal Architecture principles by:
+- Separating core domain logic from external concerns
+- Using interfaces for dependency inversion
+- Enabling easy testing through mocks
+- Maintaining clear boundaries between layers
+
+This architecture makes the system more maintainable, testable, and adaptable to change.
