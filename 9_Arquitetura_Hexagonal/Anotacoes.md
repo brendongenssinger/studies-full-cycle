@@ -29,3 +29,13 @@ que necessariamente de arquitetura.
   - Http / APIs / GraphQL
 - Facilidade na quebra para microsserviços
 
+
+## SqlLite 
+
+> touch `db.sqlite3`
+> 
+> sqlite3 db.sqlite3
+> 
+> `create table products(id string, name string, price float, status string);
+.tables`
+

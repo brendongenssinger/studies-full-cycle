@@ -44,3 +44,12 @@ The project follows Hexagonal Architecture principles by:
 - Maintaining clear boundaries between layers
 
 This architecture makes the system more maintainable, testable, and adaptable to change.
+=====================================================================================================================
+
+📐 O que é a Arquitetura Hexagonal?
+É uma forma de organizar o código separando o que é núcleo da aplicação (regra de negócio) do que é infraestrutura.
+Ela propõe o uso de portas (interfaces) e adaptadores pra permitir essa separação.
+
+O nome "hexagonal" vem de uma representação visual — mas o número de lados é simbólico, ok?
+A ideia é facilitar a comunicação da aplicação com o mundo externo por meio de portas bem definidas.
+
