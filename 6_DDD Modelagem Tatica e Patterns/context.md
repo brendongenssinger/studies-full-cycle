@@ -15,4 +15,9 @@ Entidades e objeto de valor !
 
 ### Agregados (Aggregate): 
 - Um agregado é um conjunto de objetos associados que tratamos como uma unidade para propósito de mudança de dados .
-- 
+
+
+___
+## Não confundir com Domain Services :
+
+
