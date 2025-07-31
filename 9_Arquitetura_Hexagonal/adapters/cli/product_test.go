@@ -1,10 +1,14 @@
 package cli
 
 import (
-	"testing"
+	"fmt"
 
+	"github.com/codeedu/go-hexagonal/adapters/cli"
 	mock_application "github.com/codeedu/go-hexagonal/application/mocks"
 	"github.com/golang/mock/gomock"
+	"github.com/stretchr/testify/require"
+
+	"testing"
 )
 
 func TestRun(t *testing.T) {
@@ -27,4 +31,10 @@ func TestRun(t *testing.T) {
 	service.EXPECT().Get(productId).Return(productMock, nil).AnyTimes()
 	service.EXPECT().Enable(productId).Return(productStatus, nil).AnyTimes()
 	service.EXPECT().Disable(productId).Return(productStatus, nil).AnyTimes()
+
+	resultExpected := fmt.Sprintf("Product Id %s & with the name", productId, productName)
+	result, err := cli.Run(service, "disable", productId, "", 0)
+	require.Nil(t, err)
+	require.Equal(t, resultExpected, result)
+
 }

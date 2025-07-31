@@ -46,6 +46,6 @@ func Run(service application.ProductServiceInterface, action string, productId s
 
 	}
 
-	return result, nill
+	return result, nil
 
 }
