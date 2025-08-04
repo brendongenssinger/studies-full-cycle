@@ -2,6 +2,7 @@ package db
 
 import (
 	"database/sql"
+
 	"github.com/codeedu/go-hexagonal/application"
 	_ "github.com/mattn/go-sqlite3"
 )
@@ -28,7 +29,7 @@ func (p *ProductDb) Get(id string) (application.ProductInterface, error) {
 	return &product, nil
 }
 func (p *ProductDb) create(product application.ProductInterface) (application.ProductInterface, error) {
-	stmt, err := p.db.Prepare(`insert into products(id, name, price, status) values(?,?,?,?,)`)
+	stmt, err := p.db.Prepare(`insert into products(id, name, price, status) values(?,?,?,?)`)
 	if err != nil {
 		return nil, err
 	}

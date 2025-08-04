@@ -2,6 +2,7 @@ package cli
 
 import (
 	"fmt"
+
 	"github.com/codeedu/go-hexagonal/application"
 )
 
@@ -14,7 +15,8 @@ func Run(service application.ProductServiceInterface, action string, productId s
 		if err != nil {
 			return result, err
 		}
-		result = fmt.Sprintf("Product %s created with id %s", product.Name, product.Id)
+		result = fmt.Sprintf("Product %s created with id %s", product.GetName(), product.GetID())
+
 	case "enable":
 		product, err := service.Get(productId)
 		if err != nil {
@@ -24,8 +26,7 @@ func Run(service application.ProductServiceInterface, action string, productId s
 		if err != nil {
 			return result, err
 		}
-
-		result = fmt.Sprintf("Product %s enabled", res.Name)
+		result = fmt.Sprintf("Product %s enabled", res.GetName())
 
 	case "disable":
 		product, err := service.Get(productId)
@@ -36,13 +37,14 @@ func Run(service application.ProductServiceInterface, action string, productId s
 		if err != nil {
 			return result, err
 		}
-		result = fmt.Sprintf("Product %s disabled", res.Name)
+		result = fmt.Sprintf("Product %s disabled", res.GetName())
+
 	default:
 		rest, err := service.Get(productId)
 		if err != nil {
 			return result, err
 		}
-		result = fmt.Sprintf("Product %s status: %s", rest.Name, rest.Status)
+		result = fmt.Sprintf("Product %s status: %s", rest.GetName(), rest.GetStatus())
 
 	}
 
