@@ -1,0 +1,16 @@
+{
+  "devDependencies": {
+    "@swc/cli": "^0.7.7",
+    "@swc/core": "^1.11.29",
+    "@swc/jest": "^0.2.38",
+    "@types/jest": "^29.5.14",
+    "jest": "^29.7.0",
+    "ts-node": "^10.9.2"
+  },
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "sequelize-typescript": "^2.1.6"
+  }
+}

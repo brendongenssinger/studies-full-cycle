@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/3_Comunicacao entre Sistemas/laminas_API_tools/api-tools-skeleton" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/6_DDD Modelagem Tatica e Patterns/fc-ddd-patterns" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repositorios-fc/goexpert" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/repositorios-fc/repository-wsl2-full-cycle/wsl2-docker-quickstart" vcs="Git" />
+  </component>
+</project>

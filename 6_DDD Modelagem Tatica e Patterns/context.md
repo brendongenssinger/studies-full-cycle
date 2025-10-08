@@ -21,3 +21,8 @@ ___
 ## Não confundir com Domain Services :
 
 
+----
+## Domain Services : Cuidados 
+Quando houver muitos domain services em seu projeto, TALVEZ, isso pode indicar que seus agregados estão anêmicos.
+
+- Domain Services são Stateless, eles não guarda estado.
